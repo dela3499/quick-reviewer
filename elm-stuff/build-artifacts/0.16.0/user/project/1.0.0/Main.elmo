@@ -149,7 +149,8 @@ Elm.Main.make = function (_elm) {
    var singleDocStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "top",_1: "0em"}
                                                        ,{ctor: "_Tuple2",_0: "box-sizing",_1: "border-box"}
                                                        ,{ctor: "_Tuple2",_0: "background",_1: "white"}
-                                                       ,{ctor: "_Tuple2",_0: "position",_1: "absolute"}]));
+                                                       ,{ctor: "_Tuple2",_0: "position",_1: "absolute"}
+                                                       ,{ctor: "_Tuple2",_0: "font-size",_1: "30px"}]));
    var viewBatchMetadata = function (model) {    return A2($Html.div,_U.list([batchMetadataStyle]),_U.list([]));};
    var viewText$ = function (string) {    return A2($Html.div,_U.list([singleDocTextStyle]),_U.list([$Html.text(string)]));};
    var viewTitle = function (title) {    return A2($Html.div,_U.list([titleStyle]),_U.list([$Html.text(title)]));};

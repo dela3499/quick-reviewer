@@ -26,6 +26,7 @@ import Maybe
 -- Add read TFIDF calculator and colormap
 -- Need to add import, export capabilities
 -- Home screen (with titles, metadata, and analytics.)
+-- Doesn't show up properly on mobile.
 
 commonWords = Set.fromList ["the", "of", "and", "to", "in", "a", "is", "that", "for", "it", "as", "was", "with", "be", "by", "on", "not", "he", "i", "this", "are", "or", "his", "from", "at", "which", "but", "have", "an", "had", "they", "you", "were", "their", "one", "all", "we", "can", "her", "has", "there", "been", "if", "more", "when", "will", "would", "who", "so", "no"]
 
@@ -357,6 +358,7 @@ singleDocStyle =
     , ("box-sizing", "border-box" )
     , ("background", "white")
     , ("position", "absolute")
+    , ("font-size", "30px")
     ]
 
 viewNavigationStyle =
