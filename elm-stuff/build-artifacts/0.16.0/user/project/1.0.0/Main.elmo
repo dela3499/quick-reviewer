@@ -1,0 +1,479 @@
+Elm.Main = Elm.Main || {};
+Elm.Main.make = function (_elm) {
+   "use strict";
+   _elm.Main = _elm.Main || {};
+   if (_elm.Main.values) return _elm.Main.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Array = Elm.Array.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Effects = Elm.Effects.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $Html$Events = Elm.Html.Events.make(_elm),
+   $Json$Decode = Elm.Json.Decode.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Set = Elm.Set.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $StartApp = Elm.StartApp.make(_elm),
+   $String = Elm.String.make(_elm),
+   $Time = Elm.Time.make(_elm);
+   var _op = {};
+   var documentCardStyle = $Html$Attributes.style(_U.list([]));
+   var batchMetadataStyle = $Html$Attributes.style(_U.list([]));
+   var allDocStyle = $Html$Attributes.style(_U.list([]));
+   var ratingOptionsStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "border",_1: "7px solid white"}
+                                                           ,{ctor: "_Tuple2",_0: "background",_1: "white"}
+                                                           ,{ctor: "_Tuple2",_0: "float",_1: "left"}
+                                                           ,{ctor: "_Tuple2",_0: "width",_1: "100%"}
+                                                           ,{ctor: "_Tuple2",_0: "box-sizing",_1: "border-box"}]));
+   var ratingInputStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "border-top",_1: "2px solid #097E8E"}
+                                                         ,{ctor: "_Tuple2",_0: "background",_1: "white"}
+                                                         ,{ctor: "_Tuple2",_0: "-webkit-user-select",_1: "none"}]));
+   var titleStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "margin-top",_1: "25px"}
+                                                   ,{ctor: "_Tuple2",_0: "font-size",_1: "1em"}
+                                                   ,{ctor: "_Tuple2",_0: "padding",_1: "0.5em 0.3em 0.5em 0.3em"}
+                                                   ,{ctor: "_Tuple2",_0: "background",_1: "#097E8E"}
+                                                   ,{ctor: "_Tuple2",_0: "color",_1: "white"}
+                                                   ,{ctor: "_Tuple2",_0: "box-sizing",_1: "border-box"}
+                                                   ,{ctor: "_Tuple2",_0: "display",_1: "inline-block"}
+                                                   ,{ctor: "_Tuple2",_0: "text-align",_1: "left"}
+                                                   ,{ctor: "_Tuple2",_0: "width",_1: "100%"}
+                                                   ,{ctor: "_Tuple2",_0: "border-bottom",_1: "3px solid #097E8E"}]));
+   var padding = "6px";
+   var singleDocSentenceStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "padding",_1: padding}
+                                                               ,{ctor: "_Tuple2",_0: "padding-bottom",_1: "0px"}
+                                                               ,{ctor: "_Tuple2",_0: "background",_1: "white"}
+                                                               ,{ctor: "_Tuple2",_0: "text-align",_1: "left"}
+                                                               ,{ctor: "_Tuple2",_0: "font-size",_1: "0.9em"}]));
+   var singleDocTextStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "padding-bottom",_1: padding}
+                                                           ,{ctor: "_Tuple2",_0: "background",_1: "white"}
+                                                           ,{ctor: "_Tuple2",_0: "text-align",_1: "left"}
+                                                           ,{ctor: "_Tuple2",_0: "font-size",_1: "0.9em"}]));
+   var summaryInputStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "width",_1: "100%"}
+                                                          ,{ctor: "_Tuple2",_0: "height",_1: "10em"}
+                                                          ,{ctor: "_Tuple2",_0: "background",_1: "white"}
+                                                          ,{ctor: "_Tuple2",_0: "border",_1: "none"}
+                                                          ,{ctor: "_Tuple2",_0: "border-top",_1: "2px solid #097E8E"}
+                                                          ,{ctor: "_Tuple2",_0: "padding",_1: padding}
+                                                          ,{ctor: "_Tuple2",_0: "padding-top",_1: "0.5em"}
+                                                          ,{ctor: "_Tuple2",_0: "font-family",_1: "sans-serif"}
+                                                          ,{ctor: "_Tuple2",_0: "outline",_1: "none"}
+                                                          ,{ctor: "_Tuple2",_0: "margin",_1: "0px 0px 0px 0px"}
+                                                          ,{ctor: "_Tuple2",_0: "vertical-align",_1: "bottom"}
+                                                          ,{ctor: "_Tuple2",_0: "box-sizing",_1: "border-box"}
+                                                          ,{ctor: "_Tuple2",_0: "resize",_1: "none"}
+                                                          ,{ctor: "_Tuple2",_0: "overflow",_1: "hidden"}]));
+   var commentInputStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "width",_1: "100%"}
+                                                          ,{ctor: "_Tuple2",_0: "height",_1: "10em"}
+                                                          ,{ctor: "_Tuple2",_0: "background",_1: "white"}
+                                                          ,{ctor: "_Tuple2",_0: "border",_1: "none"}
+                                                          ,{ctor: "_Tuple2",_0: "border-top",_1: "2px solid #097E8E"}
+                                                          ,{ctor: "_Tuple2",_0: "padding",_1: padding}
+                                                          ,{ctor: "_Tuple2",_0: "padding-top",_1: "0.5em"}
+                                                          ,{ctor: "_Tuple2",_0: "font-family",_1: "sans-serif"}
+                                                          ,{ctor: "_Tuple2",_0: "outline",_1: "none"}
+                                                          ,{ctor: "_Tuple2",_0: "margin",_1: "none"}
+                                                          ,{ctor: "_Tuple2",_0: "box-sizing",_1: "border-box"}
+                                                          ,{ctor: "_Tuple2",_0: "resize",_1: "none"}
+                                                          ,{ctor: "_Tuple2",_0: "overflow",_1: "hidden"}
+                                                          ,{ctor: "_Tuple2",_0: "vertical-align",_1: "bottom"}]));
+   var ratingInputHeaderStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "padding",_1: padding}
+                                                               ,{ctor: "_Tuple2",_0: "padding-bottom",_1: "0px"}
+                                                               ,{ctor: "_Tuple2",_0: "background",_1: "white"}
+                                                               ,{ctor: "_Tuple2",_0: "font-size",_1: "0.8em"}
+                                                               ,{ctor: "_Tuple2",_0: "color",_1: "grey"}
+                                                               ,{ctor: "_Tuple2",_0: "font-family",_1: "sans-serif"}
+                                                               ,{ctor: "_Tuple2",_0: "box-sizing",_1: "border-box"}]));
+   var ratingOptionStyle = F2(function (color,emphasis) {
+      return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "width",_1: "33%"}
+                                            ,{ctor: "_Tuple2",_0: "display",_1: "inline-block"}
+                                            ,{ctor: "_Tuple2",_0: "padding",_1: padding}
+                                            ,{ctor: "_Tuple2",_0: "box-sizing",_1: "border-box"}
+                                            ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}
+                                            ,{ctor: "_Tuple2",_0: "background",_1: color}
+                                            ,{ctor: "_Tuple2",_0: "color",_1: "white"}
+                                            ,{ctor: "_Tuple2",_0: "opacity",_1: emphasis ? "0.7" : "0.4"}
+                                            ,{ctor: "_Tuple2",_0: "font-weight",_1: emphasis ? "bold" : "normal"}
+                                            ,{ctor: "_Tuple2",_0: "border",_1: "1px solid white"}
+                                            ,{ctor: "_Tuple2",_0: "cursor",_1: "pointer"}
+                                            ,{ctor: "_Tuple2",_0: "-webkit-user-select",_1: "none"}]));
+   });
+   var buttonPadding = "0.2em";
+   var previousStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "float",_1: "left"}
+                                                      ,{ctor: "_Tuple2",_0: "width",_1: "10%"}
+                                                      ,{ctor: "_Tuple2",_0: "box-sizing",_1: "border-box"}
+                                                      ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}
+                                                      ,{ctor: "_Tuple2",_0: "color",_1: "#05444C"}
+                                                      ,{ctor: "_Tuple2",_0: "padding",_1: buttonPadding}
+                                                      ,{ctor: "_Tuple2",_0: "font-weight",_1: "bold"}
+                                                      ,{ctor: "_Tuple2",_0: "cursor",_1: "pointer"}
+                                                      ,{ctor: "_Tuple2",_0: "-webkit-user-select",_1: "none"}]));
+   var nextStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "float",_1: "right"}
+                                                  ,{ctor: "_Tuple2",_0: "width",_1: "10%"}
+                                                  ,{ctor: "_Tuple2",_0: "box-sizing",_1: "border-box"}
+                                                  ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}
+                                                  ,{ctor: "_Tuple2",_0: "color",_1: "#05444C"}
+                                                  ,{ctor: "_Tuple2",_0: "padding",_1: buttonPadding}
+                                                  ,{ctor: "_Tuple2",_0: "font-weight",_1: "bold"}
+                                                  ,{ctor: "_Tuple2",_0: "cursor",_1: "pointer"}
+                                                  ,{ctor: "_Tuple2",_0: "-webkit-user-select",_1: "none"}]));
+   var showAllStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "float",_1: "left"}
+                                                     ,{ctor: "_Tuple2",_0: "width",_1: "30%"}
+                                                     ,{ctor: "_Tuple2",_0: "box-sizing",_1: "border-box"}
+                                                     ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}
+                                                     ,{ctor: "_Tuple2",_0: "color",_1: "#05444C"}
+                                                     ,{ctor: "_Tuple2",_0: "padding",_1: buttonPadding}
+                                                     ,{ctor: "_Tuple2",_0: "font-weight",_1: "bold"}
+                                                     ,{ctor: "_Tuple2",_0: "cursor",_1: "pointer"}
+                                                     ,{ctor: "_Tuple2",_0: "-webkit-user-select",_1: "none"}]));
+   var timeSpentStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "float",_1: "left"}
+                                                       ,{ctor: "_Tuple2",_0: "width",_1: "25%"}
+                                                       ,{ctor: "_Tuple2",_0: "box-sizing",_1: "border-box"}
+                                                       ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}
+                                                       ,{ctor: "_Tuple2",_0: "color",_1: "black"}
+                                                       ,{ctor: "_Tuple2",_0: "opacity",_1: "0.6"}
+                                                       ,{ctor: "_Tuple2",_0: "padding",_1: buttonPadding}
+                                                       ,{ctor: "_Tuple2",_0: "-webkit-user-select",_1: "none"}]));
+   var progressInfoStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "position",_1: "fixed"}
+                                                          ,{ctor: "_Tuple2",_0: "top",_1: "2em"}
+                                                          ,{ctor: "_Tuple2",_0: "padding",_1: buttonPadding}]));
+   var viewNavigationStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "position",_1: "fixed"}
+                                                            ,{ctor: "_Tuple2",_0: "width",_1: "100%"}
+                                                            ,{ctor: "_Tuple2",_0: "height",_1: "25px"}
+                                                            ,{ctor: "_Tuple2",_0: "background",_1: "white"}
+                                                            ,{ctor: "_Tuple2",_0: "z-index",_1: "100"}
+                                                            ,{ctor: "_Tuple2",_0: "border-bottom",_1: "3px solid #097E8E"}]));
+   var singleDocStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "top",_1: "0em"}
+                                                       ,{ctor: "_Tuple2",_0: "box-sizing",_1: "border-box"}
+                                                       ,{ctor: "_Tuple2",_0: "background",_1: "white"}
+                                                       ,{ctor: "_Tuple2",_0: "position",_1: "absolute"}]));
+   var viewBatchMetadata = function (model) {    return A2($Html.div,_U.list([batchMetadataStyle]),_U.list([]));};
+   var viewText$ = function (string) {    return A2($Html.div,_U.list([singleDocTextStyle]),_U.list([$Html.text(string)]));};
+   var viewTitle = function (title) {    return A2($Html.div,_U.list([titleStyle]),_U.list([$Html.text(title)]));};
+   var viewProgressInfo = F4(function (totalTime,documentTime,i,n) {
+      var show = function (string) {
+         return A2($Html.div,
+         _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "width",_1: "33.3vw"}
+                                                 ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}
+                                                 ,{ctor: "_Tuple2",_0: "float",_1: "left"}]))]),
+         _U.list([$Html.text(string)]));
+      };
+      return A2($Html.div,_U.list([progressInfoStyle]),_U.list([show("14 minutes"),show("3 minutes"),show("Paper 4 of 40")]));
+   });
+   var formatTimeSpent = function (totalseconds) {
+      var minutes = totalseconds / 60 | 0;
+      var seconds = totalseconds - minutes * 60;
+      var space = _U.cmp(seconds,10) < 0 ? "0" : "";
+      return A2($Basics._op["++"],$Basics.toString(minutes),A2($Basics._op["++"],":",A2($Basics._op["++"],space,$Basics.toString(seconds))));
+   };
+   var decrement = function (i) {    return i - 1;};
+   var increment = function (i) {    return i + 1;};
+   var dt = 1;
+   var IncrementTimeSpent = {ctor: "IncrementTimeSpent"};
+   var SetRating = F2(function (a,b) {    return {ctor: "SetRating",_0: a,_1: b};});
+   var viewRatingOption = F4(function (address,i,rating,label) {
+      var emphasis = function () {    var _p0 = rating;if (_p0.ctor === "Score") {    return _U.eq(_p0._0,label);} else {    return false;}}();
+      var textLabels = $Array.fromList(_U.list(["Nope.","Maybe.","Yeah!"]));
+      var textLabel = A2($Maybe.withDefault,"",A2($Array.get,label - 1,textLabels));
+      var colors = $Array.fromList(_U.list(["red","black","green"]));
+      var color = A2($Maybe.withDefault,"black",A2($Array.get,label - 1,colors));
+      return A2($Html.div,
+      _U.list([A2(ratingOptionStyle,color,emphasis)
+              ,A3($Html$Events.on,"mousedown",$Json$Decode.value,function (_p1) {    return A2($Signal.message,address,A2(SetRating,i,label));})]),
+      _U.list([$Html.text(textLabel)]));
+   });
+   var viewRatingInput = F3(function (address,rating,i) {
+      return A2($Html.div,
+      _U.list([ratingInputStyle]),
+      _U.list([A2($Html.div,_U.list([ratingInputHeaderStyle]),_U.list([$Html.text("Will you act on these ideas soon?")]))
+              ,A2($Html.div,_U.list([ratingOptionsStyle]),A2($List.map,A3(viewRatingOption,address,i,rating),_U.range(1,3)))]));
+   });
+   var SetComment = F2(function (a,b) {    return {ctor: "SetComment",_0: a,_1: b};});
+   var viewCommentInput = F3(function (address,comment,i) {
+      return A2($Html.textarea,
+      _U.list([$Html$Attributes.placeholder("Any comments or new ideas?")
+              ,A3($Html$Events.on,"input",$Html$Events.targetValue,function (comment) {    return A2($Signal.message,address,A2(SetComment,i,comment));})
+              ,$Html$Attributes.value(comment)
+              ,commentInputStyle]),
+      _U.list([]));
+   });
+   var SetSummary = F2(function (a,b) {    return {ctor: "SetSummary",_0: a,_1: b};});
+   var viewSummaryInput = F3(function (address,summary,i) {
+      return A2($Html.textarea,
+      _U.list([$Html$Attributes.placeholder("What\'s the main idea?")
+              ,A3($Html$Events.on,"input",$Html$Events.targetValue,function (summary) {    return A2($Signal.message,address,A2(SetSummary,i,summary));})
+              ,$Html$Attributes.value(summary)
+              ,summaryInputStyle]),
+      _U.list([]));
+   });
+   var ShowOne = function (a) {    return {ctor: "ShowOne",_0: a};};
+   var ShowAll = {ctor: "ShowAll"};
+   var Previous = {ctor: "Previous"};
+   var Next = {ctor: "Next"};
+   var Unrated = {ctor: "Unrated"};
+   var initialDocuments = $Array.fromList(_U.list([{title: "Single nucleotide polymorphisms linked to mitochondrial uncoupling protein genes UCP2 and UCP3 affect mitochondrial metabolism and healthy aging in female nonagenarians."
+                                                   ,text: "Energy expenditure decreases with age, but in the oldest-old, energy demand for maintenance of body functions increases with declining health. Uncoupling proteins have profound impact on mitochondrial metabolic processes; therefore, we focused attention on mitochondrial uncoupling protein genes. Alongside resting metabolic rate (RMR), two SNPs in the promoter region of UCP2 were associated with healthy aging. These SNPs mark potential binding sites for several transcription factors; thus, they may affect expression of the gene. A third SNP in the 3\'-UTR of UCP3 interacted with RMR. This UCP3 SNP is known to impact UCP3 expression in tissue culture cells, and it has been associated with body weight and mitochondrial energy metabolism. The significant main effects of the UCP2 SNPs and the interaction effect of the UCP3 SNP were also observed after controlling for fat-free mass (FFM) and physical-activity related energy consumption. The association of UCP2/3 with healthy aging was not found in males. Thus, our study provides evidence that the genetic risk factors for healthy aging differ in males and females, as expected from the differences in the phenotypes associated with healthy aging between the two sexes. It also has implications for how mitochondrial function changes during aging."
+                                                   ,rating: Unrated
+                                                   ,summary: ""
+                                                   ,comment: ""
+                                                   ,timeSpent: 0}
+                                                  ,{title: "Loss of the integral nuclear envelope protein SUN1 induces alteration of nucleoli."
+                                                   ,text: "A supervised machine learning algorithm, which is qualified for image classification and analyzing similarities, is based on multiple discriminative morphological features that are automatically assembled during the learning processes. The algorithm is suitable for population-based analysis of images of biological materials that are generally complex and heterogeneous. Here we used the algorithm wndchrm to quantify the effects on nucleolar morphology of the loss of the components of nuclear envelope in a human mammary epithelial cell line. The linker of nucleoskeleton and cytoskeleton (LINC) complex, an assembly of nuclear envelope proteins comprising mainly members of the SUN and nesprin families, connects the nuclear lamina and cytoskeletal filaments. The components of the LINC complex are markedly deficient in breast cancer tissues. We found that a reduction in the levels of SUN1, SUN2, and lamin A/C led to significant changes in morphologies that were computationally classified using wndchrm with approximately 100% accuracy. In particular, depletion of SUN1 caused nucleolar hypertrophy and reduced rRNA synthesis. Further, wndchrm revealed a consistent negative correlation between SUN1 expression and the size of nucleoli in human breast cancer tissues. Our unbiased morphological quantitation strategies using wndchrm revealed an unexpected link between the components of the LINC complex and the morphologies of nucleoli that serves as an indicator of the malignant phenotype of breast cancer cells."
+                                                   ,rating: Unrated
+                                                   ,summary: ""
+                                                   ,comment: ""
+                                                   ,timeSpent: 0}]));
+   var blankDocument = {title: "",text: "",rating: Unrated,summary: "",comment: "",timeSpent: 0};
+   var viewDocumentCard = F3(function (address,model,i) {
+      var document = A2($Maybe.withDefault,blankDocument,A2($Array.get,i,model.documents));
+      return A2($Html.div,_U.list([documentCardStyle]),_U.list([$Html.text(document.title)]));
+   });
+   var viewAllDocs = F2(function (address,model) {
+      var documentCards = A2($List.map,A2(viewDocumentCard,address,model),_U.range(0,$Array.length(model.documents) - 1));
+      return A2($Html.div,_U.list([allDocStyle]),A2($List._op["::"],viewBatchMetadata(model),documentCards));
+   });
+   var Score = function (a) {    return {ctor: "Score",_0: a};};
+   var Document = F6(function (a,b,c,d,e,f) {    return {title: a,text: b,rating: c,summary: d,comment: e,timeSpent: f};});
+   var AllDocs = {ctor: "AllDocs"};
+   var SingleDoc = function (a) {    return {ctor: "SingleDoc",_0: a};};
+   var initialModel = {documents: initialDocuments,view: SingleDoc(0)};
+   var update = F2(function (action,model) {
+      var n = $Array.length(model.documents);
+      var limit = function (i) {    return A3($Basics.clamp,0,n - 1,i);};
+      var changeViewDoc = function (f) {
+         var _p2 = model.view;
+         if (_p2.ctor === "SingleDoc") {
+               return {ctor: "_Tuple2",_0: _U.update(model,{view: SingleDoc(limit(f(1)))}),_1: $Effects.none};
+            } else {
+               return {ctor: "_Tuple2",_0: model,_1: $Effects.none};
+            }
+      };
+      var _p3 = action;
+      switch (_p3.ctor)
+      {case "Next": return changeViewDoc(increment);
+         case "Previous": return changeViewDoc(decrement);
+         case "ShowAll": return {ctor: "_Tuple2",_0: _U.update(model,{view: AllDocs}),_1: $Effects.none};
+         case "ShowOne": return {ctor: "_Tuple2",_0: _U.update(model,{view: SingleDoc(_p3._0)}),_1: $Effects.none};
+         case "SetSummary": var _p5 = _p3._0;
+           var newDocument = function () {
+              var _p4 = A2($Array.get,_p5,model.documents);
+              if (_p4.ctor === "Just") {
+                    return _U.update(_p4._0,{summary: _p3._1});
+                 } else {
+                    return blankDocument;
+                 }
+           }();
+           return {ctor: "_Tuple2",_0: _U.update(model,{documents: A3($Array.set,_p5,newDocument,model.documents)}),_1: $Effects.none};
+         case "SetComment": var _p7 = _p3._0;
+           var newDocument = function () {
+              var _p6 = A2($Array.get,_p7,model.documents);
+              if (_p6.ctor === "Just") {
+                    return _U.update(_p6._0,{comment: _p3._1});
+                 } else {
+                    return blankDocument;
+                 }
+           }();
+           return {ctor: "_Tuple2",_0: _U.update(model,{documents: A3($Array.set,_p7,newDocument,model.documents)}),_1: $Effects.none};
+         case "SetRating": var _p9 = _p3._0;
+           var newDocument = function () {
+              var _p8 = A2($Array.get,_p9,model.documents);
+              if (_p8.ctor === "Just") {
+                    return _U.update(_p8._0,{rating: Score(_p3._1)});
+                 } else {
+                    return blankDocument;
+                 }
+           }();
+           return {ctor: "_Tuple2",_0: _U.update(model,{documents: A3($Array.set,_p9,newDocument,model.documents)}),_1: $Effects.none};
+         default: var _p10 = model.view;
+           if (_p10.ctor === "SingleDoc") {
+                 var _p13 = _p10._0;
+                 var newDocument = function () {
+                    var _p11 = A2($Array.get,_p13,model.documents);
+                    if (_p11.ctor === "Just") {
+                          var _p12 = _p11._0;
+                          return _U.update(_p12,{timeSpent: _p12.timeSpent + dt});
+                       } else {
+                          return blankDocument;
+                       }
+                 }();
+                 return {ctor: "_Tuple2",_0: _U.update(model,{documents: A3($Array.set,_p13,newDocument,model.documents)}),_1: $Effects.none};
+              } else {
+                 return {ctor: "_Tuple2",_0: model,_1: $Effects.none};
+              }}
+   });
+   var Model = F2(function (a,b) {    return {documents: a,view: b};});
+   var counter = A2($Signal.map,function (_p14) {    return IncrementTimeSpent;},$Time.every(1000));
+   var getDocument = F2(function (model,i) {    return A2($Maybe.withDefault,blankDocument,A2($Array.get,i,model.documents));});
+   var viewNavigation = F3(function (address,model,i) {
+      var progress = A2($Basics._op["++"],$Basics.toString(i + 1),A2($Basics._op["++"],"/",$Basics.toString($Array.length(model.documents))));
+      var timeSpent = formatTimeSpent(function (_) {    return _.timeSpent;}(A2(getDocument,model,i)));
+      var respond = function (action) {
+         return A3($Html$Events.on,"click",$Json$Decode.value,function (_p15) {    return A2($Signal.message,address,action);});
+      };
+      return A2($Html.div,
+      _U.list([viewNavigationStyle]),
+      _U.list([A2($Html.div,_U.list([previousStyle,respond(Previous)]),_U.list([$Html.text("<")]))
+              ,A2($Html.div,_U.list([timeSpentStyle]),_U.list([$Html.text(timeSpent)]))
+              ,A2($Html.div,_U.list([showAllStyle,respond(ShowAll)]),_U.list([$Html.text("Home")]))
+              ,A2($Html.div,_U.list([timeSpentStyle]),_U.list([$Html.text(progress)]))
+              ,A2($Html.div,_U.list([nextStyle,respond(Next)]),_U.list([$Html.text(">")]))]));
+   });
+   var commonWords = $Set.fromList(_U.list(["the"
+                                           ,"of"
+                                           ,"and"
+                                           ,"to"
+                                           ,"in"
+                                           ,"a"
+                                           ,"is"
+                                           ,"that"
+                                           ,"for"
+                                           ,"it"
+                                           ,"as"
+                                           ,"was"
+                                           ,"with"
+                                           ,"be"
+                                           ,"by"
+                                           ,"on"
+                                           ,"not"
+                                           ,"he"
+                                           ,"i"
+                                           ,"this"
+                                           ,"are"
+                                           ,"or"
+                                           ,"his"
+                                           ,"from"
+                                           ,"at"
+                                           ,"which"
+                                           ,"but"
+                                           ,"have"
+                                           ,"an"
+                                           ,"had"
+                                           ,"they"
+                                           ,"you"
+                                           ,"were"
+                                           ,"their"
+                                           ,"one"
+                                           ,"all"
+                                           ,"we"
+                                           ,"can"
+                                           ,"her"
+                                           ,"has"
+                                           ,"there"
+                                           ,"been"
+                                           ,"if"
+                                           ,"more"
+                                           ,"when"
+                                           ,"will"
+                                           ,"would"
+                                           ,"who"
+                                           ,"so"
+                                           ,"no"]));
+   var viewSentence = function (string) {
+      var isCommonWord = function (word) {    return A2($Set.member,word,commonWords);};
+      var createElement = function (word) {
+         return A2($Html.span,
+         _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "opacity",_1: isCommonWord(word) ? "0.7" : "1"}]))]),
+         _U.list([$Html.text(A2($Basics._op["++"],word," "))]));
+      };
+      var colors = $Array.fromList(_U.list(["black","darkblue","darkgreen"]));
+      var words = A2($String.split," ",string);
+      var wordElements = A2($List.map,createElement,words);
+      return A2($Html.div,_U.list([singleDocSentenceStyle]),wordElements);
+   };
+   var viewText = function (string) {
+      var sentences = A2($List.map,
+      function (s) {
+         return viewSentence(A2($Basics._op["++"],s,"."));
+      },
+      A2($List.filter,function (s) {    return _U.cmp($String.length(s),0) > 0;},A2($String.split,".",string)));
+      return A2($Html.div,_U.list([singleDocTextStyle]),sentences);
+   };
+   var viewSingleDoc = F3(function (address,model,i) {
+      var document = A2($Maybe.withDefault,blankDocument,A2($Array.get,i,model.documents));
+      return A2($Html.div,
+      _U.list([singleDocStyle]),
+      _U.list([A3(viewNavigation,address,model,i)
+              ,viewTitle(document.title)
+              ,viewText(document.text)
+              ,A3(viewRatingInput,address,document.rating,i)
+              ,A3(viewSummaryInput,address,document.summary,i)
+              ,A3(viewCommentInput,address,document.comment,i)]));
+   });
+   var view = F2(function (address,model) {
+      var _p16 = model.view;
+      if (_p16.ctor === "SingleDoc") {
+            return A3(viewSingleDoc,address,model,_p16._0);
+         } else {
+            return A2(viewAllDocs,address,model);
+         }
+   });
+   var app = $StartApp.start({init: {ctor: "_Tuple2",_0: initialModel,_1: $Effects.none},view: view,update: update,inputs: _U.list([counter])});
+   var main = app.html;
+   return _elm.Main.values = {_op: _op
+                             ,commonWords: commonWords
+                             ,getDocument: getDocument
+                             ,counter: counter
+                             ,app: app
+                             ,main: main
+                             ,Model: Model
+                             ,SingleDoc: SingleDoc
+                             ,AllDocs: AllDocs
+                             ,Document: Document
+                             ,Score: Score
+                             ,Unrated: Unrated
+                             ,Next: Next
+                             ,Previous: Previous
+                             ,ShowAll: ShowAll
+                             ,ShowOne: ShowOne
+                             ,SetSummary: SetSummary
+                             ,SetComment: SetComment
+                             ,SetRating: SetRating
+                             ,IncrementTimeSpent: IncrementTimeSpent
+                             ,initialDocuments: initialDocuments
+                             ,blankDocument: blankDocument
+                             ,initialModel: initialModel
+                             ,dt: dt
+                             ,increment: increment
+                             ,decrement: decrement
+                             ,update: update
+                             ,view: view
+                             ,viewSingleDoc: viewSingleDoc
+                             ,formatTimeSpent: formatTimeSpent
+                             ,viewNavigation: viewNavigation
+                             ,viewProgressInfo: viewProgressInfo
+                             ,viewTitle: viewTitle
+                             ,viewText$: viewText$
+                             ,viewText: viewText
+                             ,viewSentence: viewSentence
+                             ,viewSummaryInput: viewSummaryInput
+                             ,viewCommentInput: viewCommentInput
+                             ,viewRatingInput: viewRatingInput
+                             ,viewRatingOption: viewRatingOption
+                             ,viewAllDocs: viewAllDocs
+                             ,viewBatchMetadata: viewBatchMetadata
+                             ,viewDocumentCard: viewDocumentCard
+                             ,singleDocStyle: singleDocStyle
+                             ,viewNavigationStyle: viewNavigationStyle
+                             ,buttonPadding: buttonPadding
+                             ,previousStyle: previousStyle
+                             ,nextStyle: nextStyle
+                             ,showAllStyle: showAllStyle
+                             ,timeSpentStyle: timeSpentStyle
+                             ,progressInfoStyle: progressInfoStyle
+                             ,padding: padding
+                             ,titleStyle: titleStyle
+                             ,singleDocSentenceStyle: singleDocSentenceStyle
+                             ,singleDocTextStyle: singleDocTextStyle
+                             ,summaryInputStyle: summaryInputStyle
+                             ,commentInputStyle: commentInputStyle
+                             ,ratingInputStyle: ratingInputStyle
+                             ,ratingInputHeaderStyle: ratingInputHeaderStyle
+                             ,ratingOptionsStyle: ratingOptionsStyle
+                             ,ratingOptionStyle: ratingOptionStyle
+                             ,allDocStyle: allDocStyle
+                             ,batchMetadataStyle: batchMetadataStyle
+                             ,documentCardStyle: documentCardStyle};
+};
